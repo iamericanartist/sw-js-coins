@@ -2,8 +2,10 @@ var penny = .01;
 var nickel = .05;
 var dime = .10;
 var quarter = .25;
-var input = .67;    //prompt("Enter change amount plz:")
+var input = prompt("Enter change amount plz:")
 
+
+ // .67; 
 console.log("Dollar amount is $" + input );
 document.getElementById("theFacts").innerHTML = `${"Dollar amount is $" + input}<hr>`;
 
@@ -19,40 +21,40 @@ var coinPurse = {};
 
 
 //FOR QUARTERS:
-do {
+while (input >= quarter) {
 	input -= quarter;
 	input = input.toFixed(2);
 	coinPurse.quarters += 1;
 	console.log("Quarters",coinPurse.quarters);
 	printDat();
-} while (input >= quarter);
+}
 
 //FOR DIMES:
-do {
+while (input >= dime) {
 	input -= dime;
 	input = input.toFixed(2);
 	coinPurse.dimes += 1;
 	console.log("Dimes",coinPurse.dimes);
 	printDat();
-} while (input >= dime);
+} 
 
 //FOR NICKELS:
-do {
+while (input >= nickel) {
 	input -= nickel;
 	input = input.toFixed(2);
 	coinPurse.nickels += 1;
 	console.log("Nickels",coinPurse.nickels);
 	printDat();
-} while (input >= nickel);
+} 
 
 //FOR PENNIES:
-do {
+while (input >= penny) {
 	input -= penny;
 	input = input.toFixed(2);
 	coinPurse.pennys += 1;
 	console.log("Pennies",coinPurse.pennys);
 	printDat();
-} while (input >= penny);
+} 
 
 //The RETURNS:
 console.log("coinPurse",coinPurse );
@@ -65,7 +67,8 @@ document.getElementById("theReturns").innerHTML =
 	}`;
 
 ////////////// Known issues...
-//1. if you enter a quantity (rather than have the .67 input and run the prompt) sometimes the "running INPUT amount" would dip into the negatives...
+//1. if you enter a quantity (rather than have the .67 input and run the prompt) sometimes the "running INPUT amount" would 
+	// dip into the negatives...
 	// as I think the "do...while" loops will run at least once no matter what. Couldn't wrap my head around how to fix that...
 //2. I FOR THE LIFE OF ME, couldn't figure out how to return the "coinPurse" to the DOM the way it renders in the console log... :(
 
